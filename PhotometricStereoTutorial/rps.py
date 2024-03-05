@@ -105,18 +105,14 @@ class PS(object):
         # Step 1: solve Ax = b
         # Hint: You can use np.linalg.lstsq(A, b) to solve Ax = b
             
-       # self.N = np.linalg.lstsq(np.transpose(self.L), np.transpose(self.M), rcond=None)[0]
+        self.N = np.linalg.lstsq(np.transpose(self.L), np.transpose(self.M), rcond=None)[0]
 
         # Step 2: We need to normalize the normal vectors as the norm of the normal vectors should be 1
         # Hint: You can use function normalize from sklearn.preprocessing
         
-       # self.N = (np.transpose(self.N))
-        #self.N = normalize(self.N,norm="l2", axis=1)
-        A = (np.transpose(self.L))
-        B = (np.transpose(self.M))
-        self.N = np.linalg.lstsq(A, B, rcond=None)[0]
-        self.N  = (np.transpose(self.N))
-        self.N = normalize(self.N, axis=1)
+        self.N = (np.transpose(self.N))
+        self.N = normalize(self.N,norm="l2", axis=1)
+        
 
         #############################################
 
